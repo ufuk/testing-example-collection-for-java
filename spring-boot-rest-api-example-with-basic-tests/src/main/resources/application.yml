@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driverClassName: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:mem:actualdatabase
+    username: sa
+    password:
+  data:
+    jpa.repositories.enabled: true
+  jpa:
+    database: hsql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
