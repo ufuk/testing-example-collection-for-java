@@ -1,4 +1,4 @@
-Testing Example Collection For Java
+Testing Example Collection for Java
 ===================================
 
 This repository contains various testing examples for Java projects.
