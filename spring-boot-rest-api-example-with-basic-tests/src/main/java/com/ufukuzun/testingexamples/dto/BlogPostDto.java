@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class BlogPostDto {
 
+    private long id;
+
     private String title;
 
     private String content;
@@ -11,6 +13,14 @@ public class BlogPostDto {
     private String author;
 
     private Date createdDate;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

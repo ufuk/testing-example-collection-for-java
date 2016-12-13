@@ -62,12 +62,14 @@ public class BlogPostControllerTest {
     @Test
     public void listAllBlogPosts() throws Exception {
         BlogPostDto blogPostDto1 = new BlogPostDto();
+        blogPostDto1.setId(21);
         blogPostDto1.setTitle("Spring Boot Testing Improvements");
         blogPostDto1.setContent("New @SpringBootTest and other new annotations those come within Spring Boot 1.4.0.");
         blogPostDto1.setAuthor("Richard Roe");
         blogPostDto1.setCreatedDate(new DateTime(2016, 12, 14, 0, 0).toDate());
 
         BlogPostDto blogPostDto2 = new BlogPostDto();
+        blogPostDto2.setId(57);
         blogPostDto2.setTitle("Unit Testing");
         blogPostDto2.setContent("Do not push any production code without unit tests.");
         blogPostDto2.setAuthor("John Doe");
@@ -82,10 +84,12 @@ public class BlogPostControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.*", hasSize(1)))
                 .andExpect(jsonPath("$.blogPosts.*", hasSize(2)))
+                .andExpect(jsonPath("$.blogPosts[0].id", equalTo(21)))
                 .andExpect(jsonPath("$.blogPosts[0].title", equalTo("Spring Boot Testing Improvements")))
                 .andExpect(jsonPath("$.blogPosts[0].content", equalTo("New @SpringBootTest and other new annotations those come within Spring Boot 1.4.0.")))
                 .andExpect(jsonPath("$.blogPosts[0].author", equalTo("Richard Roe")))
                 .andExpect(jsonPath("$.blogPosts[0].createdDate", equalTo(new DateTime(2016, 12, 14, 0, 0).getMillis())))
+                .andExpect(jsonPath("$.blogPosts[1].id", equalTo(57)))
                 .andExpect(jsonPath("$.blogPosts[1].title", equalTo("Unit Testing")))
                 .andExpect(jsonPath("$.blogPosts[1].content", equalTo("Do not push any production code without unit tests.")))
                 .andExpect(jsonPath("$.blogPosts[1].author", equalTo("John Doe")))

@@ -33,6 +33,7 @@ public class BlogPostService {
 
         blogPosts.forEach(each -> {
             BlogPostDto blogPostDto = new BlogPostDto();
+            blogPostDto.setId(each.getId());
             blogPostDto.setTitle(each.getTitle());
             blogPostDto.setContent(each.getContent());
             blogPostDto.setAuthor(each.getAuthor());

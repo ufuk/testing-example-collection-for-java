@@ -22,6 +22,7 @@ public class BlogPostRepositoryTest {
 
     @Test
     public void listNotDeletedBlogPostsOrderedByCreatedDateDescendingly() {
+        // TODO: complete test
         List<BlogPost> resultList = blogPostRepository.findAllDeletedFalseByOrderByCreatedDateDesc();
     }
 
