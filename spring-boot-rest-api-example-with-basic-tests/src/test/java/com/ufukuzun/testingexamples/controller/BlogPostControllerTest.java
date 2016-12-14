@@ -96,6 +96,8 @@ public class BlogPostControllerTest {
                 .andExpect(jsonPath("$.blogPosts[1].createdDate", equalTo(new DateTime(2016, 11, 15, 0, 0).getMillis())));
 
         verify(blogPostService).listAllBlogPosts();
+
+        verifyNoMoreInteractions(blogPostService);
     }
 
 }
