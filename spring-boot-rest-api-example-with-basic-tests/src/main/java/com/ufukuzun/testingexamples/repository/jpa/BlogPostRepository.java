@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface BlogPostRepository extends JpaRepository<BlogPost, Long> {
 
-    List<BlogPost> findAllDeletedFalseByOrderByCreatedDateDesc();
+    List<BlogPost> findByDeletedFalseOrderByCreatedDateDesc();
 
 }

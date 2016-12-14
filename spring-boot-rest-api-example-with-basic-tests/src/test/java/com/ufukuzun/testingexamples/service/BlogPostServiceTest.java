@@ -78,7 +78,7 @@ public class BlogPostServiceTest {
         blogPost2.setAuthor("Richard Roe");
         blogPost2.setCreatedDate(new DateTime(2003, 4, 8, 1, 26).toDate());
 
-        when(blogPostRepository.findAllDeletedFalseByOrderByCreatedDateDesc()).thenReturn(Arrays.asList(blogPost1, blogPost2));
+        when(blogPostRepository.findByDeletedFalseOrderByCreatedDateDesc()).thenReturn(Arrays.asList(blogPost1, blogPost2));
 
         ListBlogPostsResponse listBlogPostsResponse = blogPostService.listAllBlogPosts();
 
@@ -95,7 +95,7 @@ public class BlogPostServiceTest {
         assertThat(blogPostDtos.get(1).getAuthor(), equalTo("Richard Roe"));
         assertThat(blogPostDtos.get(1).getCreatedDate(), equalTo(new DateTime(2003, 4, 8, 1, 26).toDate()));
 
-        verify(blogPostRepository).findAllDeletedFalseByOrderByCreatedDateDesc();
+        verify(blogPostRepository).findByDeletedFalseOrderByCreatedDateDesc();
 
         verifyNoMoreInteractions(blogPostRepository);
     }

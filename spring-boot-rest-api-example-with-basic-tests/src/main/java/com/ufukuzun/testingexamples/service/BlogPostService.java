@@ -29,7 +29,7 @@ public class BlogPostService {
     public ListBlogPostsResponse listAllBlogPosts() {
         ListBlogPostsResponse listBlogPostsResponse = new ListBlogPostsResponse();
 
-        List<BlogPost> blogPosts = blogPostRepository.findAllDeletedFalseByOrderByCreatedDateDesc();
+        List<BlogPost> blogPosts = blogPostRepository.findByDeletedFalseOrderByCreatedDateDesc();
 
         blogPosts.forEach(each -> {
             BlogPostDto blogPostDto = new BlogPostDto();
